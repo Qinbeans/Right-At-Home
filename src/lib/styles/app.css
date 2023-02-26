@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: 'Fira Sans', sans-serif;
+    --background: rgb(242, 233, 223);
+    --text: rgb(71, 60, 56);
+    --primary: rgb(249, 175, 152);
+    --secondary: rgb(248, 197, 146);
+    --tertiary: rgb(254, 249, 233);
+    --quaternary: rgb(178, 120, 48);
+    --error: rgb(255, 159, 159);
+    --ok: rgb(159, 255, 159);
+}
+
+@keyframes blink {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes error {
+    0% {
+        transform: translateX(1px) rotate(1deg);
+    }
+    10% {
+        transform: translateX(-1px) rotate(-1deg);
+    }
+}
+
+.contact-form {
+    @apply rounded p-1;
+    background-color: var(--primary);
+    border: 1px solid var(--text);
+}
+
+button.contact-form:hover {
+    background-color: var(--ok);
+}
+
+input[type=email].contact-form:valid:not(:placeholder-shown) {
+    background-color: var(--ok);
+}
+
+input[type=email].contact-form:invalid {
+    background-color: var(--error);
+    animation: error 0.1s ease-in-out infinite alternate;
+}
+
+.nav-selected {
+    @apply bg-transparent cursor-default font-extrabold;
+}
+
+.nav-unselected {
+    @apply cursor-pointer;
+    background-color: var(--background);
+}
+
+.nav-unselected:hover {
+    border-color: var(--quaternary);
+    color: var(--quaternary);
+    background-color: var(--text);
+    animation: blink 1s ease-in-out infinite alternate;
+}
+
+.nav {
+    @apply text-xl border border-solid rounded px-1;
+    border-color: var(--text);
+    color: var(--text);
+    margin-top: 0.25rem;
+}
+
+.nav-title {
+    @apply text-4xl text-center drop-shadow;
+    color: var(--text);
+}
+
+.nav-title-wrapper {
+    @apply py-1 px-2 flex flex-row justify-center items-center border rounded;
+    border-color: var(--text);
+    background-color: var(--secondary);
+}
+
+.nav-menu-button:hover {
+    animation: blink 0.5s ease-in-out infinite alternate;
+}

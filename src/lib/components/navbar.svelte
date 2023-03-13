@@ -52,34 +52,35 @@
 
 </script>
 
-<div class="bg-secondary-70 p-1 border border-solid border-text-100 rounded" data-popup="nav-menu">
-    <ul class="flex flex-col items-center">
-        {#each hyperlinks as hyperlink}
-            <li class="my-1">
-                {#if current == hyperlink.id}
-                    <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-selected">{hyperlink.name}</a>
-                {:else}
-                    <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-unselected">{hyperlink.name}</a>
-                {/if}
-            </li>
-        {/each}
-    </ul>
-</div>
-
-<AppBar background="py-1 mt-2 mx-1 bg-tertiary-30 rounded border border-solid border-text-100">
-    <svelte:fragment slot="lead">
-        <button class="flex mx-3 nav-menu-button py-3 pr-2 pl-4 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
-            <Icon className="" src={AiOutlineMenu}/>
-            <Icon className="" src={AiFillCaretDown}/>
-        </button>
-    </svelte:fragment>
-    <div class="grid place-content-center">
-        <div class="nav-title-wrapper">
-            <h1 class="nav-title">{name}</h1>
-        </div>
+<nav class="fixed top-0 w-screen">
+    <div class="bg-secondary-70 p-1 border border-solid border-text-100 rounded" data-popup="nav-menu">
+        <ul class="flex flex-col items-center">
+            {#each hyperlinks as hyperlink}
+                <li class="my-1">
+                    {#if current == hyperlink.id}
+                        <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-selected">{hyperlink.name}</a>
+                    {:else}
+                        <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-unselected">{hyperlink.name}</a>
+                    {/if}
+                </li>
+            {/each}
+        </ul>
     </div>
-    <svelte:fragment slot="trail">
-        <Avatar src={Logo}/>
-    </svelte:fragment>
-</AppBar>
-
+    <AppBar gridColumns="grid-cols-3" slotTrail="place-content-end" slotDefault="place-self-center" background="py-1 mt-2 mx-1 bg-tertiary-30 rounded border border-solid border-text-100">
+        <svelte:fragment slot="lead">
+            <button class="flex mx-3 nav-menu-button py-3 pr-2 pl-4 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
+                <Icon className="" src={AiOutlineMenu}/>
+                <Icon className="" src={AiFillCaretDown}/>
+            </button>
+        </svelte:fragment>
+        <div class="grid place-content-center">
+            <div class="nav-title-wrapper">
+                <h1 class="nav-title">{name}</h1>
+            </div>
+        </div>
+        <svelte:fragment slot="trail">
+            <Avatar src={Logo}/>
+        </svelte:fragment>
+    </AppBar>    
+</nav>
+<div class="h-16"/>

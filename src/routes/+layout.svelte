@@ -57,3 +57,8 @@
 <Background color="var(--background)" image_url="{Logo}"/>
 <Navbar name="Right At Home" current={current} hyperlinks={hyperlinks}/>
 <slot/>
+<footer class="fixed bottom-0 px-1 flex flex-row gap-3 text-xs">
+	<span>@2023 Right At Home by Ryan Fong</span>
+	-
+	<span>Powered by Svelte</span>
+</footer>

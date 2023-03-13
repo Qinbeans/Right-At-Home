@@ -1,8 +1,8 @@
-<!-- a calendar is 7x4 -->
 <script lang="ts">
     import { createClient } from '@supabase/supabase-js';
 	import type { Database } from '$lib/ts/supabase';
 	import type { CalendarEvent } from '$lib/ts/types';
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
 	export let api_url: string;
 	export let api_key: string;
 	//request the calendar data from supabase
@@ -152,18 +152,17 @@
 	<div class="text-center">Saturday</div>
 </div>
 {#await promise}
-awaiting...
+<div class="w-36 h-36 p-3">
+	<ProgressRadial stroke={50} meter="stroke-ok-100"/>
+</div>
 {:then _value}
 <div class="grid gap-1 grid-cols-7 grid-rows-4 border border-solid border-black bg-secondary-70 rounded-lg p-1 m-1">
-	<!-- each clause iterating through the current month -->
 	{#each Array(months[month]) as _, i (i)}
-		<!-- if the day is the first day of the month, start a new row -->
 		{#if i == 0}
 			{#each Array(firstDay) as _, j (j)}
 				<div class="p-1"></div>
 			{/each}
 		{/if}
-		<!-- if the day is today, highlight it -->
 		{#if i == day - 1}
 			<div class="rounded calendar border border-solid border-black bg-ok-90 px-1 pt-1 h-[5.25rem] w-full">
 				{#if i < 9}

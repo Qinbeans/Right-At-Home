@@ -58,7 +58,9 @@
 <Navbar name="Right At Home" current={current} hyperlinks={hyperlinks}/>
 <slot/>
 <footer class="fixed bottom-0 px-1 flex flex-row gap-3 text-xs">
-	<span>@2023 Right At Home by Ryan Fong</span>
+	<span>@2023 Right At Home</span>
+	-
+	<span>Designed by <a class="text-text-100 italic nav-menu-button" href="https://www.linkedin.com/in/rybeats/" target="_blank" rel="noreferrer">Ryan Fong</a></span>
 	-
 	<span>Powered by Svelte</span>
 </footer>

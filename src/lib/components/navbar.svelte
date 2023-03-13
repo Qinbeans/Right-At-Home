@@ -1,7 +1,4 @@
 <script lang="ts">
-    import { nav_state, NavState } from "../ts/store";
-    import { get_state } from "../ts/tool";
-    import { onMount } from "svelte";
     import { Avatar } from '@skeletonlabs/skeleton';
     import Logo from '../images/logo.png';
     import { AppBar } from '@skeletonlabs/skeleton';
@@ -13,41 +10,38 @@
     import Icon from 'svelte-icons-pack/Icon.svelte';
     import AiFillCaretDown from 'svelte-icons-pack/ai/AiFillCaretDown.js';
     import AiOutlineMenu from 'svelte-icons-pack/ai/AiOutlineMenu.js';
+	import { goto } from '$app/navigation';
 
-    onMount(() => {
-        get_state();
-    });
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
     export let hyperlinks = [
         {
             name: "Home",
             href: "/",
-            state: NavState.Home
+            id: "home",
         },
         {
             name: "About",
             href: "/about",
-            state: NavState.About
-
+            id: "about",
         },
         {
             name: "Contact",
             href: "/contact",
-            state: NavState.Contact
+            id: "contact",
         }
     ]
 
     export let name = "Title";
-    let nav:NavState = NavState.None;
-
-    nav_state.subscribe((value: NavState) => {
-        nav = value;
-    });
+    export let current = "home";
 
     const select = (target: Event) => {
         const id = (target.target as HTMLElement).id;
-        nav_state.set(parseInt(id));
+        //get the hyperlink with the id
+        const hyperlink = hyperlinks.find(hyperlink => hyperlink.id == id);
+        //set the hyperlink as the current hyperlink
+        if (hyperlink)
+            goto(hyperlink.href);
     }
 
     const settings: PopupSettings = {
@@ -61,10 +55,10 @@
     <ul class="flex flex-col items-center">
         {#each hyperlinks as hyperlink}
             <li class="my-1">
-                {#if nav == hyperlink.state}
-                    <a on:click={select} id="{hyperlink.state.toString()}" href={hyperlink.href} class="nav nav-selected">{hyperlink.name}</a>
+                {#if current == hyperlink.id}
+                    <a on:click={select} id="{hyperlink.id}" href={hyperlink.href} class="nav nav-selected">{hyperlink.name}</a>
                 {:else}
-                    <a on:click={select} id="{hyperlink.state.toString()}" href={hyperlink.href} class="nav nav-unselected">{hyperlink.name}</a>
+                    <a on:click={select} id="{hyperlink.id}" href={hyperlink.href} class="nav nav-unselected">{hyperlink.name}</a>
                 {/if}
             </li>
         {/each}
@@ -73,7 +67,7 @@
 
 <AppBar background="py-1 mt-2 mx-1 bg-tertiary-30 rounded border border-solid border-text-100">
     <svelte:fragment slot="lead">
-        <button class="flex mx-3 nav-menu-button py-2 pl-2 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
+        <button class="flex mx-3 nav-menu-button py-3 pr-2 pl-4 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
             <Icon className="" src={AiOutlineMenu}/>
             <Icon className="" src={AiFillCaretDown}/>
         </button>

@@ -1,3 +1,4 @@
+[![Build test](https://github.com/Qinbeans/Right-At-Home/actions/workflows/deploy.yml/badge.svg)](https://github.com/Qinbeans/Right-At-Home/actions/workflows/deploy.yml)
 # Right-At-Home: A recovery program for the Campfire incident
 
 This is a recovery program for the Campfire incident that affected many Northern California communities in October 2017. The program is designed to help people who have been displaced by the fire to find a place to stay, and to help people who have a place to stay to find people who need a place to stay.

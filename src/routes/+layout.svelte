@@ -26,7 +26,7 @@
 		},
 		{
 			name: "Covid-19",
-			href: base+"/covid-19",
+			href: "./covid-19",
 			id: "covid-19",
 		},
 		{

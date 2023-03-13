@@ -111,20 +111,6 @@
             toastStore.trigger(t);
             return;
         }
-        //don't allow special characters
-        if (message.value.match(/[^0-9a-zA-Z\.\,\-\?\(\)\&\@\$]/g)){
-            const t: ToastSettings = {
-                message: 'Please use roman letters in your message!',
-                // Optional: The auto-hide settings
-                autohide: true,
-                timeout: 5000,
-                background: 'bg-error-60',
-
-            };
-            toastStore.trigger(t);
-            contact_results[2] = false;
-            return;
-        }
         submit.hidden = !(contact_results[0] && contact_results[1] && contact_results[2])
     }
 </script>

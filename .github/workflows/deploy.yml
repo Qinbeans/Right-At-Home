@@ -56,20 +56,10 @@ jobs:
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v1.3
       with:
-        envkey_API_KEY: '${{ secrets.API_KEY }}'
-        envkey_API_URL: '${{ secrets.API_URL }}'
+        envkey_API_KEY: ''
+        envkey_API_URL: ''
         file_name: .env
         directory: ./
-    - run: cat .env
     # Builds the site
     - run: pnpm run build
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-    - name: Build with Jekyll
-      uses: actions/jekyll-build-pages@v1
-      with:
-        source: ./build
-        destination: ./_site
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
 

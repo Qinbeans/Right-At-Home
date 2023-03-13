@@ -4,7 +4,7 @@
 
 :root {
     font-family: 'Fira Sans', sans-serif;
-    --background: rgb(242, 233, 223);
+    --background: rgb(245, 233, 222);
     --text: rgb(71, 60, 56);
     --primary: rgb(249, 175, 152);
     --secondary: rgb(248, 197, 146);
@@ -49,6 +49,10 @@ input[type=email].contact-form:valid:not(:placeholder-shown) {
 input[type=email].contact-form:invalid {
     background-color: var(--error);
     animation: error 0.1s ease-in-out infinite alternate;
+}
+
+.calendar:hover {
+    animation: blink 0.5s ease-in-out infinite alternate;
 }
 
 .nav-selected {

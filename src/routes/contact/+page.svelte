@@ -6,9 +6,6 @@
     
     import '$lib/styles/app.css'
     import Page from '$lib/components/page.svelte'
-    import Navbar from '$lib/components/navbar.svelte'
-    import Background from '$lib/components/background.svelte';
-    import Logo from '$lib/images/logo.png'
     import { Toast, toastStore } from '@skeletonlabs/skeleton';
     import type { ToastSettings } from '@skeletonlabs/skeleton';
     import { createClient } from '@supabase/supabase-js';
@@ -134,9 +131,7 @@
 
 <Toast />
 
-<Background color="var(--background)" image_url="{Logo}"/>
 <main>
-    <Navbar name="Right At Home"/>
     <Page header="Contact">
         <ul class="flex flex-col justify-center border border-solid border-text-100 rounded p-2 bg-secondary-100">
             <li>

@@ -4,7 +4,7 @@
 
 
 <main>
-    <Page header="Welcome">
+    <div class="grid place-items-center grid-cols-1">
         <Page header="Welcome to Right-At-Home!" center="text-center" width="w-9/12">
             <p class="text-center italic">
                 Tomorrow's safe space for today's youth.
@@ -28,13 +28,13 @@
                         </li>
                     </ul>
                 </Page>
-
                 <Page header="Board">
                     <p class="text-center italic">
+                        <!-- grab this from the db at some point -->
                         Stay tuned for updates!
                     </p>
                 </Page>
             </div>
         </Page>
-    </Page>
+    </div>
 </main>

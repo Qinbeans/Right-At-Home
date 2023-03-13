@@ -1,23 +1,8 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Build and Deploy
-  name: Create envfile
-
-on: [ push ]
-
-jobs:
-
-  create-envfile:
- 
-    runs-on: ubuntu-latest
- 
-    steps:
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1.3
-      with:
-        API_KEY: ${{ secrets.API_KEY }}
-        API_URL: ${{ secrets.API_URL }}
+name: Build and Deploy 
+    
 on:
   push:
     branches: [ "main" ]
@@ -36,12 +21,19 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
-  
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+    # Creates an envfile with the secrets
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1.3
+      with:
+        API_KEY: ${{ secrets.API_KEY }}
+        API_URL: ${{ secrets.API_URL }}
+    # Enables pnpm and npm
     - uses: actions/checkout@v3
     - name: Install Node.js
       uses: actions/setup-node@v3
@@ -68,12 +60,12 @@ jobs:
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
-
+    # Installs dependencies
     - name: Install dependencies
       run: pnpm install
     - run: pnpm install
     - run: pnpm run build
-    # - run: pnpm test
+    # Builds the site
     - name: Setup Pages
       uses: actions/configure-pages@v3
     - name: Build with Jekyll

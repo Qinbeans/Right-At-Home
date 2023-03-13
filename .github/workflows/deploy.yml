@@ -27,15 +27,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Creates an envfile with the secrets
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1.3
-      with:
-        envkey_API_KEY: ${{ secrets.API_KEY }}
-        envkey_API_URL: ${{ secrets.API_URL }}
-        file_name: .env
-        directory: ./
-    - run: cat .env
     # Enables pnpm and npm
     - uses: actions/checkout@v3
     - name: Install Node.js
@@ -67,8 +58,18 @@ jobs:
     - name: Install dependencies
       run: pnpm install
     - run: pnpm install
-    - run: pnpm run build
+    # Creates an envfile with the secrets
+    - run: echo ${{ secrets.API_KEY }}
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1.3
+      with:
+        envkey_API_KEY: '${{ secrets.API_KEY }}'
+        envkey_API_URL: '${{ secrets.API_URL }}'
+        file_name: .env
+        directory: ./
+    - run: cat .env
     # Builds the site
+    - run: pnpm run build
     - name: Setup Pages
       uses: actions/configure-pages@v3
     - name: Build with Jekyll

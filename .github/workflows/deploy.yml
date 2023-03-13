@@ -35,8 +35,7 @@ jobs:
         envkey_API_URL: ${{ secrets.API_URL }}
         file_name: .env
         directory: ./
-      run: |
-        cat .env >> $GITHUB_ENV
+    - run: cat .env
     # Enables pnpm and npm
     - uses: actions/checkout@v3
     - name: Install Node.js

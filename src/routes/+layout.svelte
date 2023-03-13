@@ -4,33 +4,34 @@
     import Logo from '$lib/images/logo.png'
     import Navbar from '$lib/components/navbar.svelte'
 	import { page } from '$app/stores';
+    import { base } from '$app/paths';
 	import { afterUpdate, onMount } from 'svelte';
 	let current = "home";
 
 	const hyperlinks = [
 		{
 			name: "Home",
-			href: "/",
+			href: base+"/",
 			id: "home",
 		},
 		{
 			name: "About",
-			href: "/about",
+			href: base+"/about",
 			id: "about",
 		},
 		{
 			name: "Calendar",
-			href: "/calendar",
+			href: base+"/calendar",
 			id: "calendar",
 		},
 		{
 			name: "Covid-19",
-			href: "/covid-19",
+			href: base+"/covid-19",
 			id: "covid-19",
 		},
 		{
 			name: "Contact",
-			href: "/contact",
+			href: base+"/contact",
 			id: "contact",
 		},
 	]

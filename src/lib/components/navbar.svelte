@@ -39,9 +39,10 @@
         const id = (target.target as HTMLElement).id;
         //get the hyperlink with the id
         const hyperlink = hyperlinks.find(hyperlink => hyperlink.id == id);
-        //set the hyperlink as the current hyperlink
-        if (hyperlink)
+        //set the current hyperlink
+        if (hyperlink) {
             goto(hyperlink.href);
+        }
     }
 
     const settings: PopupSettings = {
@@ -56,9 +57,9 @@
         {#each hyperlinks as hyperlink}
             <li class="my-1">
                 {#if current == hyperlink.id}
-                    <a on:click={select} id="{hyperlink.id}" href={hyperlink.href} class="nav nav-selected">{hyperlink.name}</a>
+                    <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-selected">{hyperlink.name}</a>
                 {:else}
-                    <a on:click={select} id="{hyperlink.id}" href={hyperlink.href} class="nav nav-unselected">{hyperlink.name}</a>
+                    <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-unselected">{hyperlink.name}</a>
                 {/if}
             </li>
         {/each}

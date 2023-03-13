@@ -57,9 +57,7 @@ jobs:
     # Installs dependencies
     - name: Install dependencies
       run: pnpm install
-    - run: pnpm install
     # Creates an envfile with the secrets
-    - run: echo ${{ secrets.API_KEY }}
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v1.3
       with:
@@ -75,7 +73,7 @@ jobs:
     - name: Build with Jekyll
       uses: actions/jekyll-build-pages@v1
       with:
-        source: ./
+        source: ./build
         destination: ./_site
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1

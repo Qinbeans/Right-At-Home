@@ -39,6 +39,7 @@
 	"dependencies": {
 		"@floating-ui/dom": "^1.2.1",
 		"@supabase/supabase-js": "^2.8.0",
+		"@sveltejs/adapter-static": "^2.0.1",
 		"svelte-icons-pack": "^2.0.0"
 	}
 }

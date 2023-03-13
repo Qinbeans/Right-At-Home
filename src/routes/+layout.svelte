@@ -5,7 +5,6 @@
     import Navbar from '$lib/components/navbar.svelte'
 	import { page } from '$app/stores';
 	import { afterUpdate, onMount } from 'svelte';
-	export const prerender = true;
 	let current = "home";
 
 	const hyperlinks = [

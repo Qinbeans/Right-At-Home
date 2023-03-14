@@ -126,7 +126,7 @@
 </script>
 <div class="grid place-items-center gap-1 grid-cols-[auto_auto_auto] text-lg font-extrabold grid-cols-3 rounded-lg p-1 m-1 bg-secondary-90 border border-solid border-black">
 	<div>
-		<button class="calendar rounded-lg px-2 hover:bg-ok-90 border border-solid border-black" on:click={decrementMonth}><span>&#60;</span></button>
+		<button name="decrement" class="calendar rounded-lg px-2 hover:bg-ok-90 border border-solid border-black" on:click={decrementMonth}><span>&#60;</span></button>
 	</div>
 	<div class="w-24 text-center flex flex-col rounded-lg p-1 m-1 bg-tertiary-90 border border-solid border-black">
 		<ul>
@@ -139,7 +139,7 @@
 		</ul>
 	</div>
 	<div>
-		<button class="calendar rounded-lg px-2 hover:bg-ok-90 border border-solid border-black" on:click={incrementMonth}><span>&#62;</span></button>
+		<button name="increment" class="calendar rounded-lg px-2 hover:bg-ok-90 border border-solid border-black" on:click={incrementMonth}><span>&#62;</span></button>
 	</div>
 </div>
 <div class="grid gap-1 text-sm font-extrabold grid-cols-7 rounded-lg p-1 m-1 bg-secondary-70 border border-solid border-black">

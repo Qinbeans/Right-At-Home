@@ -151,7 +151,7 @@
                 <textarea class="w-full contact-form" name="contact-message" id="contact-message" cols="30" rows="10" on:change={checkValid}></textarea>
             </li>
             <li class="text-center">
-                <button id="contact-submit" class="contact-form" hidden on:click={serializeResponse}>Submit</button>
+                <button name="submit-button" id="contact-submit" class="contact-form" hidden on:click={serializeResponse}>Submit</button>
             </li>
         </ul>
     </Page>

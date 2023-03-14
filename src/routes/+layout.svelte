@@ -54,6 +54,10 @@
 	});
 
 </script>
+<svelte:head>
+    <title>{current.toUpperCase()}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</svelte:head>
 <Background color="var(--background)" image_url="{Logo}"/>
 <Navbar name="Right At Home" current={current} hyperlinks={hyperlinks}/>
 <slot/>

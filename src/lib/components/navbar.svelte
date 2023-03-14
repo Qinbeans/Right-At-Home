@@ -68,7 +68,7 @@
     </div>
     <AppBar gridColumns="grid-cols-3" slotTrail="place-content-end" slotDefault="place-self-center" background="py-1 mt-2 mx-1 bg-tertiary-30 rounded border border-solid border-text-100">
         <svelte:fragment slot="lead">
-            <button class="flex mx-3 nav-menu-button py-3 pr-2 pl-4 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
+            <button name="burger" class="flex mx-3 nav-menu-button py-3 pr-2 pl-4 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
                 <Icon className="" src={AiOutlineMenu}/>
                 <Icon className="" src={AiFillCaretDown}/>
             </button>

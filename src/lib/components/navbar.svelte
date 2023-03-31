@@ -75,7 +75,7 @@
         </svelte:fragment>
         <div class="grid place-content-center">
             <div class="nav-title-wrapper">
-                <h1 class="nav-title">{name}</h1>
+                <h1 class="nav-title md:text-4xl text-sm">{name}</h1>
             </div>
         </div>
         <svelte:fragment slot="trail">

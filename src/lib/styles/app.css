@@ -79,7 +79,7 @@ input[type=email].contact-form:invalid {
 }
 
 .nav-title {
-    @apply text-4xl text-center drop-shadow;
+    @apply text-center drop-shadow;
     color: var(--text);
 }
 

@@ -15,11 +15,6 @@
 			id: "home",
 		},
 		{
-			name: "About",
-			href: base+"/about",
-			id: "about",
-		},
-		{
 			name: "Calendar",
 			href: base+"/calendar",
 			id: "calendar",

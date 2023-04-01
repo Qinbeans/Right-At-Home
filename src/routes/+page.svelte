@@ -45,7 +45,7 @@
             </p>
         </Page>
         <Page header="About Us" width="w-9/12">
-            <!-- <div class="grid grid-cols-2"> -->
+            <div class="grid grid-cols-2">
                 <Page header="Our Mission" center= "text center" width="w-10/12">
                     <p class="text-center">
                         Our mission is to establish a safe and inviting environment for people to socialize and relieve their stress through the use of community
@@ -61,13 +61,13 @@
                         We are locating at 5738 Pent Road, Paradise, CA 95969
                     </p>
                 </Page>
-                <Page header="Our Hour" width="w-10/12">
+                <Page header="Our Hours" width="w-10/12">
                     <p class="text-center">
                         We are open from 3:30-9pm, Monday-Saturday
                     </p>
                 </Page>
                 
-            <!-- </div> -->
+            </div>
         </Page>       
         <Page header="Announcement Board" center="text-center" width="w-9/12">
             {#if board}

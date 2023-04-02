@@ -7,3 +7,11 @@ export interface CalendarEvent {
     start: string;
     title: string;
 }
+
+export interface BoardPost {
+    id: string;
+    subject: string;
+    description: string;
+    created_at: string;
+    render_date: string;
+}

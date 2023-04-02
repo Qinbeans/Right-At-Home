@@ -9,10 +9,33 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      board: {
+        Row: {
+          created_at: string | null
+          description: string
+          id: string
+          render_date: string
+          subject: string
+        }
+        Insert: {
+          created_at?: string | null
+          description: string
+          id?: string
+          render_date?: string
+          subject: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string
+          id?: string
+          render_date?: string
+          subject?: string
+        }
+      }
       calendar: {
         Row: {
           color: string | null
-          created_at: string
+          created_at: string | null
           description: string
           end: string
           id: string
@@ -21,16 +44,16 @@ export interface Database {
         }
         Insert: {
           color?: string | null
-          created_at?: string
+          created_at?: string | null
           description: string
           end?: string
           id?: string
           start?: string
-          title: string
+          title?: string
         }
         Update: {
           color?: string | null
-          created_at?: string
+          created_at?: string | null
           description?: string
           end?: string
           id?: string
@@ -42,21 +65,21 @@ export interface Database {
         Row: {
           created_at: string | null
           email: string
-          id: string
+          id: number
           message: string
           subject: string
         }
         Insert: {
           created_at?: string | null
           email: string
-          id?: string
+          id?: number
           message: string
           subject: string
         }
         Update: {
           created_at?: string | null
           email?: string
-          id?: string
+          id?: number
           message?: string
           subject?: string
         }

@@ -155,4 +155,11 @@
             </li>
         </ul>
     </Page>
+    <Page header="Feel free to call us">
+        <ul class="flex flex-col justify-center border border-solid border-text-100 rounded p-2 bg-secondary-100">
+            <li class="text-center">
+                <a href="tel:+1-555-555-5555">+1-123-456-789</a>
+            </li>
+        </ul>
+    </Page>
 </main>

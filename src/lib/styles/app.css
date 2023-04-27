@@ -14,6 +14,8 @@
     --ok: rgb(159, 255, 159);
 }
 
+html, body { @apply h-full overflow-hidden; }
+
 @keyframes blink {
     from {
         opacity: 0.5;
@@ -56,7 +58,7 @@ input[type=email].contact-form:invalid {
 }
 
 .nav-selected {
-    @apply bg-transparent cursor-default font-extrabold;
+    @apply cursor-default font-extrabold;
 }
 
 .nav-unselected {
@@ -72,7 +74,7 @@ input[type=email].contact-form:invalid {
 }
 
 .nav {
-    @apply text-xl border border-solid rounded px-1;
+    @apply border border-solid rounded px-1;
     border-color: var(--text);
     color: var(--text);
     margin-top: 0.25rem;

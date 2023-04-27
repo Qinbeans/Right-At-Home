@@ -6,6 +6,7 @@
 	import { page } from '$app/stores';
     import { base } from '$app/paths';
 	import { afterUpdate, onMount } from 'svelte';
+	import { AppShell } from '@skeletonlabs/skeleton';
 	let current = "home";
 
 	const hyperlinks = [
@@ -54,12 +55,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </svelte:head>
 <Background color="var(--background)" image_url="{Logo}"/>
-<Navbar name="Right At Home" current={current} hyperlinks={hyperlinks}/>
-<slot/>
-<footer class="fixed bottom-0 px-1 flex flex-row gap-3 text-xs">
-	<span>@2023 Right At Home</span>
-	-
-	<span>Designed by <a class="text-text-100 italic nav-menu-button" href="https://www.linkedin.com/in/rybeats/" target="_blank" rel="noreferrer">Ryan Fong</a></span>
-	-
-	<span>Powered by Svelte</span>
-</footer>
+<AppShell>
+	<svelte:fragment slot="header">
+		<Navbar name="Right At Home" current={current} hyperlinks={hyperlinks}/>
+	</svelte:fragment>
+	<!-- Body -->
+	<slot/>
+	<!-- Footer -->
+	<footer class="fixed bottom-0 px-1 flex flex-row gap-3 text-xs">
+		<span>@2023 Right At Home</span>
+		-
+		<span>Designed by <a class="text-text-100 italic nav-menu-button" href="https://www.linkedin.com/in/rybeats/" target="_blank" rel="noreferrer">Ryan Fong</a></span>
+		-
+		<span>Powered by Svelte</span>
+	</footer>
+</AppShell>

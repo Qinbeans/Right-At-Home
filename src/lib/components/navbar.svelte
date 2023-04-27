@@ -1,7 +1,6 @@
 <script lang="ts">
     import { Avatar } from '@skeletonlabs/skeleton';
     import Logo from '../images/logo.png';
-    import { AppBar } from '@skeletonlabs/skeleton';
     import { popup } from '@skeletonlabs/skeleton';
     import type { PopupSettings } from '@skeletonlabs/skeleton';
     import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
@@ -71,35 +70,31 @@
             </ul>
         </div>
     {/if}
-    <AppBar gridColumns="grid-cols-3" slotTrail="place-content-end" slotDefault="place-self-center" background="py-1 mt-2 mx-1 bg-tertiary-30 rounded border border-solid border-text-100">
-        <svelte:fragment slot="lead">
-            <Avatar src={Logo}/>
-        </svelte:fragment>
+    <div class="grid grid-cols-3 place-items-center m-1 rounded border border-solid border-text-100 bg-background-100">
+        <Avatar src={Logo}/>
         <div class="grid place-content-center">
             <div class="nav-title-wrapper">
                 <h1 class="nav-title md:text-4xl text-sm">{name}</h1>
             </div>
         </div>
-        <svelte:fragment slot="trail">
-            {#if innerWidth < 700}
-                <button name="burger" class="flex mx-3 nav-menu-button py-3 pr-2 pl-4 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
-                    <Icon className="" src={AiOutlineMenu}/>
-                    <Icon className="" src={AiFillCaretDown}/>
-                </button>
-            {:else}
-                <ul class="flex flex-row items-center gap-2">
-                    {#each hyperlinks as hyperlink}
-                        <li class="my-1">
-                            {#if current == hyperlink.id}
-                                <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-selected md:text-lg text-xs bg-gray-400 italic">{hyperlink.name}</a>
-                            {:else}
-                                <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-unselected md:text-lg text-xs">{hyperlink.name}</a>
-                            {/if}
-                        </li>
-                    {/each}
-                </ul>
-            {/if}
-        </svelte:fragment>
-    </AppBar>    
+        {#if innerWidth < 700}
+            <button name="burger" class="w-16 h-10 flex mx-3 nav-menu-button py-3 pr-2 pl-4 rounded-full bg-secondary-100 border border-solid border-text-100" use:popup={settings}>
+                <Icon className="" src={AiOutlineMenu}/>
+                <Icon className="" src={AiFillCaretDown}/>
+            </button>
+        {:else}
+            <ul class="flex flex-row items-center gap-2">
+                {#each hyperlinks as hyperlink}
+                    <li class="my-1">
+                        {#if current == hyperlink.id}
+                            <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-selected md:text-lg text-xs bg-gray-400 italic">{hyperlink.name}</a>
+                        {:else}
+                            <a on:click={select} id="{hyperlink.id}" href="{hyperlink.href}" class="nav nav-unselected md:text-lg text-xs">{hyperlink.name}</a>
+                        {/if}
+                    </li>
+                {/each}
+            </ul>
+        {/if}
+    </div>
 </nav>
 <div class="h-16"/>
